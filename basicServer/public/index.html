@@ -17,6 +17,15 @@
                 const long = position.coords.longitude;
                 document.getElementById('latitude').textContent = lat;
                 document.getElementById('longitude').textContent = long;
+                const data = { lat, long };
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+                fetch('/api', options);
             });
         } else {
             /* geolocation IS NOT available */
